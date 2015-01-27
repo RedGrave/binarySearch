@@ -30,15 +30,23 @@ namespace binarySearch
                 int srch;
                 if(int.TryParse(s, out srch))
                 {
-                    int result = n.searchNode(srch, 0);
-                    if(result != 0)
+                    if (n.data != srch)
                     {
-                        Console.WriteLine("FOUND ! STEP : " + result);
+                        int result = n.searchNode(srch, 0);
+                        if (result != 0)
+                        {
+                            Console.WriteLine("FOUND ! STEP : " + result);
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("NOT FOUND !");
+                        }
                     }
 
                     else
                     {
-                        Console.WriteLine("NOT FOUND !");
+                        Console.WriteLine("FOUND @ ROOT");
                     }
                 }
                 else
