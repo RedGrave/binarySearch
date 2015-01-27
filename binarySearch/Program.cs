@@ -58,7 +58,8 @@ namespace binarySearch
 
         static void Main(string[] args)
         {
-            int[] data = regenerateTree(1000000, 10000);
+            Console.WriteLine("Generating Random Binary Tree... Please wait, it can take several minutes");
+            int[] data = regenerateTree(10000000, 10000000);
             RootNode rn = new RootNode();
             Node n = rn.populateTree(data);
 
