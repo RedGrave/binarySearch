@@ -27,31 +27,40 @@ namespace binarySearch
                 string s = Console.ReadLine().ToString();
                 if (s == "exit") break;
 
-                int srch;
-                if(int.TryParse(s, out srch))
+                else if (s == "status")
                 {
-                    if (n.data != srch)
+                    Console.WriteLine("Nbr of leaf : " + n.count());
+                    Console.WriteLine("Maximum depth : " + n.getDepth());
+                }
+
+                else
+                {
+                    int srch;
+                    if (int.TryParse(s, out srch))
                     {
-                        int result = n.searchNode(srch, 0);
-                        if (result != 0)
+                        if (n.data != srch)
                         {
-                            Console.WriteLine("FOUND ! STEP : " + result);
+                            int result = n.searchNode(srch, 0);
+                            if (result != 0)
+                            {
+                                Console.WriteLine("FOUND ! STEP : " + result);
+                            }
+
+                            else
+                            {
+                                Console.WriteLine("NOT FOUND !");
+                            }
                         }
 
                         else
                         {
-                            Console.WriteLine("NOT FOUND !");
+                            Console.WriteLine("FOUND @ ROOT");
                         }
                     }
-
                     else
                     {
-                        Console.WriteLine("FOUND @ ROOT");
+                        Console.WriteLine("Failed to parse number");
                     }
-                }
-                else
-                {
-                    Console.WriteLine("Failed to parse number");
                 }
             }
         }

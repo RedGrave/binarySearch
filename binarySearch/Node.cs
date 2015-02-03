@@ -104,6 +104,52 @@ namespace binarySearch
                 }
             }
         }
+
+        public int count()
+        {
+            int cnt = 1;
+            if(this.leftNode != null)
+            {
+                cnt += leftNode.count();
+            }
+            if(this.rightNode != null)
+            {
+                cnt += rightNode.count();
+            }
+
+            return cnt;
+        }
+
+        public int getDepth()
+        {
+            int actualLeftDepth = 1;
+            int actualRightDepth = 1;
+
+            if (this.leftNode != null)
+            {
+                actualLeftDepth += leftNode.getDepth();
+            }
+            if (this.rightNode != null)
+            {
+                actualRightDepth += rightNode.getDepth();
+            }
+
+            if(actualRightDepth <= actualLeftDepth)
+            {
+                return actualLeftDepth;
+            }
+
+            else
+            {
+                return actualRightDepth;
+            }
+        }
+
+        public bool isBalanced(Node n)
+        {
+
+            return true;
+        }
     }
 
     public class RootNode
@@ -123,5 +169,6 @@ namespace binarySearch
             }
             return n;
         }
+
     }
 }
